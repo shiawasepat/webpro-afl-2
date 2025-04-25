@@ -129,22 +129,25 @@
 
     .player-name {
     background-color: white;
-    padding: 2px 60px;
+    padding: 4px 10px;
     border-radius: 4px;
     box-shadow: 1px 3px 0px rgba(0, 0, 0, 0.25);
     font-size: 1rem;
+    text-align: left;
+    width: fit-content; /* biar lebarnya menyesuaikan isi */
 }
 
     .name-rating-row {
     display: flex;
+    justify-content: flex-start;
     gap: 0.5rem; /* jarak antara nama dan rating */
 }
 
-    .rating-container {
-        position: relative;
-        width: 130px;
-        height: 40px;
-    }
+.rating-container {
+    position: relative;
+    width: 100px; /* sebelumnya 130px */
+    height: 32px; /* lebih ramping */
+}
 
     .rating-image {
         width: 100%;
@@ -155,23 +158,33 @@
     .rating-total {
         position: absolute;
         top: 50%;
-        right: -4%;
-        letter-spacing: 4px;
+        right: -2%;
+        letter-spacing: 1.575px;
         transform: translateY(-50%);
-        font-size: 17px;
+        font-size: 14px;
         font-family: "Meiryo";
         color: white;
         padding: 2px 8px;
     }
 
     .background-image {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        left: 0;
-        z-index: -1;
-        pointer-events: none;
-    }
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+    .bg-rainbow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: -2; /* lebih rendah dari background-image */
+    pointer-events: none;
+}
+
 
     @media (min-width: 600px) {
         body {
@@ -233,18 +246,19 @@
             <p class="silver-circle">debut</p>
             <div class="name-rating-row">
                 <p class="player-name">patrick</p>
+                <div class="rating-container">
+                    <img src="./assets/rating_base_silver.png" class="rating-image" alt="rating">
+                    <p class="rating-total">13690</p>
                 </div>
-            <div class="rating-container">
-                <img src="./assets/rating_base_silver.png" class="rating-image" alt="rating">
-                <p class="rating-total">13690</p>
             </div>
         </div>
     </div>
 </div>
     
-
+    
     <!-- Background Image -->
     <img src="./assets/back_area_dx.png" alt="bottom bg" class="background-image">
+    <img src="./assets/bg_rainbow_sp.png" alt="rainbow" class="bg-rainbow">
 
     <script>
         document.querySelectorAll('.nav-btn').forEach(btn => {
