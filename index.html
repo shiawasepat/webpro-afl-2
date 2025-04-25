@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login - maitracker.net</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font import -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@100..900&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'M PLUS 1', sans-serif;
+      background-color: #5FA9C2;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 2rem;
+    }
+    
+    .login-title {
+      font-weight: bold;
+      margin-bottom: 2rem;
+      color: #fff;
+    }
+    
+    .login-container {
+      background-color: #d9d9d9;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 320px;
+      padding: 2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .form-control {
+      background-color: #848484;
+      border: none;
+      color: white;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .form-control:focus {
+      background-color: #848484;
+      color: white;
+      box-shadow: 0 0 0 0.25rem rgba(132, 132, 132, 0.25);
+    }
+    
+    .btn-login {
+      background-color: #6c757d;
+      border: none;
+      font-weight: 600;
+      padding: 0.75rem;
+      transition: all 0.2s ease;
+      width: 100%;
+      color: white;
+    }
+    
+    .btn-login:hover {
+      background-color: #5a6268;
+      color: white;
+    }
+    
+    .btn-login:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    
+    .warning-box {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6c757d;
+      max-width: 320px;
+    }
+    
+    .form-check-input:checked {
+      background-color: #848484;
+      border-color: #848484;
+    }
+    
+    @media (min-width: 600px) {
+        body {
+        padding: 3rem;
+        }}
+
+    /* Centered ToS checkbox */
+    .tos-container {
+      display: flex;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
+    
+    .tos-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+  .background-image {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  z-index: -1;
+  pointer-events: none;
+}
+  </style>
+</head>
+<body>
+
+  <!-- Title -->
+  <h1 class="login-title">maitracker.net</h1>
+
+  <!-- Login Box -->
+  <div class="login-container">
+    <form id="loginForm">
+      <div class="mb-3">
+        <label for="username" class="form-label visually-hidden">Username</label>
+        <input type="text" class="form-control" id="username" placeholder="Username" required>
+      </div>
+      
+      <div class="mb-3">
+        <label for="password" class="form-label visually-hidden">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Password" required>
+      </div>
+      
+      <!-- Centered ToS Checkbox -->
+      <div class="tos-container">
+        <div class="tos-checkbox">
+          <input class="form-check-input" type="checkbox" id="tosCheck" required>
+          <label class="form-check-label" for="tosCheck">Agree ToS</label>
+        </div>
+      </div>
+      
+      <button type="submit" class="btn btn-login fw-bold" id="loginBtn" disabled>Login</button>
+    </form>
+  </div>
+
+  <!-- Warning -->
+  <div class="warning-box">
+    <p class="mb-0 fw-semibold">WARNING:</p>
+    <p class="mb-0">Make sure your account is already registered<br>from the official maimai dx website!</p>
+  </div>
+
+  <img src="./assets/back_area_dx.png" alt="bottom bg" class="background-image">
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const loginForm = document.getElementById('loginForm');
+      const loginBtn = document.getElementById('loginBtn');
+      const tosCheckbox = document.getElementById('tosCheck');
+      const inputs = document.querySelectorAll('.form-control');
+      
+      // Enable/disable login button
+      function updateButtonState() {
+        const allFilled = Array.from(inputs).every(i => i.value.trim() !== '');
+        loginBtn.disabled = !(allFilled && tosCheckbox.checked);
+      }
+      
+      tosCheckbox.addEventListener('change', updateButtonState);
+      
+      inputs.forEach(input => {
+        input.addEventListener('input', updateButtonState);
+      });
+      
+      loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        window.location.href = './main.html';
+      });
+    });
+  </script>
+</body>

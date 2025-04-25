@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About - Patrick</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@100..900&display=swap" rel="stylesheet" />
+
+<style>
+body {
+    font-family: 'M PLUS 1', sans-serif;
+    background-color: #78bcd4;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+    padding-top: 40px;
+}
+
+.logo {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    background-color: #78bcd4; /* sama dengan background biar ga tumpang tindih */
+    padding: 0.5rem 1rem;
+}
+
+.back-button {
+    background-color: #a5e6ff;
+    padding: 10px 95px;
+    align-self: center;
+    font-size: 3dvh;
+    text-decoration: none;
+    color: black;
+}
+
+.about-card {
+    background-color: rgba(185, 228, 242, 0.8); /* termasuk opacity */
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 1000px;
+    margin: 0 auto;       /* <== biar tetap center */
+}
+.profile-pic {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.socials a {
+    margin: 0.3rem 0;
+    display: inline-block;
+}
+
+.main-content {
+    z-index: 1;
+    position: relative;
+    height: 100%;
+    overflow: auto;
+}
+
+.bottom-area {
+    position: absolute;
+    size: 4cap;
+    bottom: 0;
+    width: 375px; /* Matches body width */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.background-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width:100%;
+    z-index: 0;
+}
+
+.rainbow {
+    background: url('./assets/bg_rainbow_sp.png') no-repeat center bottom;
+    background-size: contain;
+    width: 100%;
+    height: 300px; /* kamu bisa adjust tingginya biar pas */
+    margin-top: 2rem;
+}
+</style>
+</head>
+
+<body>
+<div class="main-content container d-flex flex-column justify-content-start h-100 pt-3 pb-5">
+<div class="logo">maitracker.net</div><br>
+<a class="back-button" href="./main.html">Back</a>
+
+<div class="about-card row align-items-center">
+    <div class="col-md-4 text-center">
+    <img src="./assets/IMG_6083.jpg" alt="Patrick photo" class="profile-pic img-fluid mb-3">
+    <div class="socials">
+        <a href="https://instagram.com/shiaseeds_" class="btn btn-info mb-2">
+        <i class="bi bi-instagram me-2"></i> shiaseeds_
+        </a>
+        <a href="tel:+6282223336688" class="btn btn-info d-block">+62 822 2333 6688</a>
+    </div>
+    </div>
+
+    <div class="col-md-8">
+    <h2>Patrick Shiawase Aruji</h2>
+    <p>Hello, and welcome to my website! My name is Patrick Shiawase Aruji, and I’m an Informatics student passionate about technology, creativity, and storytelling.</p>
+    <p>I’m currently exploring the world of video production and portfolio building, using my technical and artistic skills to bring ideas to life.</p>
+
+    <h5>What I Do</h5>
+    <ul>
+        <li><strong>Video Production:</strong> I specialize in creating engaging and visually compelling video content.</li>
+        <li><strong>Web Development:</strong> I design and build websites that are both functional and aesthetically pleasing.</li>
+        <li><strong>Creative Projects:</strong> Crafting portfolios or brainstorming new app ideas.</li>
+    </ul>
+    <p>I’m always looking for ways to innovate and improve.</p>
+
+    <h5><strong>Thank You!</strong></h5>
+    <p>Thank you for taking the time to visit my website. I’m excited to share my journey with you and look forward to hearing your thoughts, feedback, or even just a friendly hello!</p>
+    </div>
+</div>
+</div>
+
+<!-- Background Image -->
+<div class="background-wrapper rainbow"></div>
+<img src="./assets/back_area_dx.png" alt="bottom bg" class="bottom-area">
+
+<sc
